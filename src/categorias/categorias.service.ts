@@ -79,7 +79,7 @@ export class CategoriasService {
       .exec();
 
     if (!categoriaEncontrada) {
-      throw new BadRequestException(`Categoria ${categoria} não cadastrada!`);
+      throw new NotFoundException(`Categoria ${categoria} não cadastrada!`);
     }
 
     await this.jogadoresService.consultarJogadorPeloId(idJogador);

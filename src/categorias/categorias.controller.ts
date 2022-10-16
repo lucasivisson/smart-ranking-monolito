@@ -34,15 +34,16 @@ export class CategoriasController {
   async consultarCategoriaPeloId(
     @Param('categoria') categoria: string,
   ): Promise<Categoria> {
-    return await this.categoriasService.consultarCategoriaPeloId(categoria);
+    return this.categoriasService.consultarCategoriaPeloId(categoria);
   }
 
   @Put('/:categoria')
+  @UsePipes(ValidationPipe)
   async atualizarCategoria(
     @Body() atualizarCategoriaDto: AtualizarCategoriaDto,
     @Param('categoria') categoria: string,
   ): Promise<void> {
-    await this.categoriasService.atualizarCategoria(
+    return this.categoriasService.atualizarCategoria(
       categoria,
       atualizarCategoriaDto,
     );
@@ -50,6 +51,6 @@ export class CategoriasController {
 
   @Post('/:categoria/jogadores/:idJogador')
   async atribuirCategoriaJogador(@Param() params: string[]): Promise<void> {
-    return await this.categoriasService.atribuirCategoriaJogador(params);
+    return this.categoriasService.atribuirCategoriaJogador(params);
   }
 }

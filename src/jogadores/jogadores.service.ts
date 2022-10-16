@@ -60,7 +60,6 @@ export class JogadoresService {
       .exec();
 
     if (!jogadorEncontrado) {
-      console.log('entrou?');
       throw new NotFoundException(`Jogador com id ${_id} não encontrado`);
     }
 
