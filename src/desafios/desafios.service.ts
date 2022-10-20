@@ -172,7 +172,7 @@ export class DesafiosService {
 
     const resultado = await partidaCriada.save();
 
-    /* Quando uma partida for registrada por um usuário, mudaremos o status do desafio para realizado */
+    /* Quando uma partida for registrada por um usuário, mudaremos o status do desafio. para realizado */
     desafioEncontrado.status = DesafioStatus.REALIZADO;
 
     /** Recuperamos o ID da partida e atribuimos ao desafio */
